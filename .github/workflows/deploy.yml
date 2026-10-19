@@ -37,12 +37,8 @@ jobs:
 
       
       - name: Deploy to Azure Container Apps
-        uses: azure/container-apps-deploy-action@v1
-        with:
-          imageToDeploy: acrliang2026.azurecr.io/pipeline:${{ github.sha }}
-          containerAppName: ca-pipeline-sl
-          resourceGroup: rg-cpsy300-w4d2-sl
-          acrName: acrliang2026
-          acrUsername: ${{ secrets.ACR_USERNAME }}
-          acrPassword: ${{ secrets.ACR_PASSWORD }}
-
+        run: |
+          az containerapp update \
+            --name "$CONTAINERAPP" \
+            --resource-group "$RESOURCE_GROUP" \
+            --image "$ACR_NAME.azurecr.io/pipeline:${{ github.sha }}"
