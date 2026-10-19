@@ -12,7 +12,7 @@ permissions:
 env:
   ACR_NAME: acrliang2026
   RESOURCE_GROUP: rg-cpsy300-w4d2-sl
-  CONTAINERAPP: ca-pipeline-sl
+  CONTAINERAPP: ca-pipeline-auth-test-sl
 
 jobs:
   build-and-deploy:
