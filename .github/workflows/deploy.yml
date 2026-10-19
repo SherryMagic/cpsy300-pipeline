@@ -1,0 +1,21 @@
+name: Build and deploy
+ 
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+ 
+permissions:
+  id-token: write
+  contents: read
+ 
+env:
+  ACR_NAME: acr<yoursurname><4 digits>
+  RESOURCE_GROUP: rg-cpsy300-w4d2-<your initials>
+  CONTAINERAPP: ca-pipeline-<your initials>
+ 
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
